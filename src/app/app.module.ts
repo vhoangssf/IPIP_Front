@@ -5,22 +5,35 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
+import { LandingPage } from '../pages/landing/landing';
+import { LoginPage } from '../pages/login/login';
+import { RegisterPage } from '../pages/register/register';
+import { LobbyPage } from '../pages/lobby/lobby';
+import { QuestionPage } from '../pages/question/question';
+import { HistoryPage } from '../pages/history/history';
+import { ResultsPage } from '../pages/results/results';
+
+
+let injections: any[] = [
+    MyApp,
+    LandingPage,
+    LoginPage,
+    RegisterPage,
+    LobbyPage,
+    QuestionPage,
+    HistoryPage,
+    ResultsPage
+    
+  ]
 
 @NgModule({
-  declarations: [
-    MyApp,
-    HomePage
-  ],
+  declarations: injections,
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
-  entryComponents: [
-    MyApp,
-    HomePage
-  ],
+  entryComponents: injections,
   providers: [
     StatusBar,
     SplashScreen,
