@@ -12,6 +12,7 @@ import { LobbyPage } from '../pages/lobby/lobby';
 import { QuestionPage } from '../pages/question/question';
 import { HistoryPage } from '../pages/history/history';
 import { ResultsPage } from '../pages/results/results';
+import { BigFiveSumPage } from '../pages/big-five-sum/big-five-sum';
 
 
 let injections: any[] = [
@@ -22,8 +23,8 @@ let injections: any[] = [
     LobbyPage,
     QuestionPage,
     HistoryPage,
-    ResultsPage
-    
+    ResultsPage,
+    BigFiveSumPage
   ]
 
 @NgModule({
