@@ -9,19 +9,58 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
  * on Ionic pages and navigation.
  */
 
-let apiQuestions = [{
-  "questionNumber": 1,
-  "text": "I am the life of the party.",
-  "factor": "Extroversion"
-}, {
-  "questionNumber": 2,
-  "text": "I feel little concern for others.",
-  "factor": "apathy"
-}, {
-  "questionNumber": 3,
-  "text": "I am always prepared.",
-  "factor": "preparedness"
-}];
+let apiQuestions = [
+  {
+      "Keyed": true,
+      "Text": "Am the life of the party.",
+      "Style": "Extraversion"
+  },
+  {
+      "Keyed": true,
+      "Text": "Feel comfortable around people.",
+      "Style": "Extraversion"
+  },
+  {
+      "Keyed": true,
+      "Text": "Start conversations.",
+      "Style": "Extraversion"
+  },
+  {
+      "Keyed": true,
+      "Text": "Talk to a lot of different people at parties.",
+      "Style": "Extraversion"
+  },
+  {
+      "Keyed": true,
+      "Text": "Don't mind being the center of attention.",
+      "Style": "Extraversion"
+  },
+  {
+      "Keyed": false,
+      "Text": "Don't talk a lot.",
+      "Style": "Extraversion"
+  },
+  {
+      "Keyed": false,
+      "Text": "Keep in the background.",
+      "Style": "Extraversion"
+  },
+  {
+      "Keyed": false,
+      "Text": "Have little to say.",
+      "Style": "Extraversion"
+  },
+  {
+      "Keyed": false,
+      "Text": "Don't like to draw attention to myself.",
+      "Style": "Extraversion"
+  },
+  {
+      "Keyed": false,
+      "Text": "Am quiet around strangers.",
+      "Style": "Extraversion"
+  }
+];
 
 @IonicPage()
 @Component({
@@ -30,7 +69,7 @@ let apiQuestions = [{
 })
 
 export class QuestionPage {
-
+  @ViewChild(Slides) slides:Slides;
   questions: any = apiQuestions;
 
   constructor(
@@ -43,6 +82,16 @@ export class QuestionPage {
     console.log('ionViewDidLoad QuestionPage');
   }
 
-  // slideNext()
+  slideNext() {
+    console.log("Submitted");
+    if(this.slides.getActiveIndex() + 1 !== apiQuestions.length) {
+      this.slides.lockSwipes(false);
+      this.slides.slideTo(this.slides.getActiveIndex() + 1);
+      this.slides.lockSwipes(true);
+    } else {
+      
+    }
+
+  }
 
 }
