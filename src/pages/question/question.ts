@@ -292,7 +292,8 @@ export class QuestionPage {
   nextSlide(option) {
     console.log("Submitted");
     console.log(option.Style);
-    this.testAnswers[option.Style].push(option.Style);
+    console.log(parseInt(option.factor));
+    this.testAnswers[option.Style].push(parseInt(option.factor));
     if(this.slides.getActiveIndex() + 1 !== apiQuestions.length) {
       this.slides.lockSwipes(false);
       this.slides.slideTo(this.slides.getActiveIndex() + 1);
