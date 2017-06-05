@@ -90,7 +90,7 @@ export class QuestionPage {
       this.slides.slideTo(this.slides.getActiveIndex() + 1);
       this.slides.lockSwipes(true);
     } else {
-
+      
     }
 
   }
