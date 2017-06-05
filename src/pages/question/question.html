@@ -17,40 +17,39 @@
   <ion-slides pager paginationType="fraction">
     <ion-slide *ngFor="let question of questions">
       <ion-card>
-        <ion-list radio-group>
+        <ion-list radio-group [(ngModel)]="option" #Style>
           <ion-list-header>
-            Life of DA PARTY
-
+            {{question.Text}}
           </ion-list-header>
 
           <ion-item>
             <ion-label>Strongly Disagree</ion-label>
-              <ion-radio value="1"></ion-radio>
+              <ion-radio checked= "false" value="1"></ion-radio>
           </ion-item>
 
           <ion-item>
             <ion-label>Disagree</ion-label>
-              <ion-radio value="2"></ion-radio>
+              <ion-radio checked= "false" value="2"></ion-radio>
           </ion-item>
 
           <ion-item>
             <ion-label>Neutral</ion-label>
-              <ion-radio value="3"></ion-radio>
+              <ion-radio checked="true" value="3"></ion-radio>
           </ion-item>
 
           <ion-item>
             <ion-label>Agree</ion-label>
-              <ion-radio value="4"></ion-radio>
+              <ion-radio checked="false" value="4"></ion-radio>
           </ion-item>
 
           <ion-item>
             <ion-label>Strongly Agree</ion-label>
-              <ion-radio value="5"></ion-radio>
+              <ion-radio checked="false" value="5"></ion-radio>
           </ion-item>
 
         </ion-list>
       </ion-card>
-      <button ion-button medium (click)="slideNext()">Submit</button>
+      <button ion-button medium (click)="nextSlide(question)">Submit</button>
     </ion-slide>
   </ion-slides>
 </ion-content>
