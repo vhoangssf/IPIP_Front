@@ -25,6 +25,11 @@ export class QuestionsProvider {
     return this.http.get(this.baseUrl + this.path);
   }
   
+  //Retreive Goldberg's questions after passing in authentication token
+  getQuestions(token){
+    return this.http.get(this.baseUrl + this.path + '?access_token=' + token  );
+  }
+  
   
 
 }
