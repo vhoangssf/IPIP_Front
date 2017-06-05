@@ -6,13 +6,35 @@
 -->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Login</ion-title>
+  <ion-navbar text-center>
+    <ion-title>IPIP Test</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+
+  
+  <ion-item>
+    
+    <ion-input placeholder="Username" type="text"></ion-input>
+  </ion-item>
+  
+    <ion-item>
+ 
+    <ion-input placeholder="Password" type="password"></ion-input>
+  </ion-item>
+
+
+  <button ion-button class="button-block" (click)="logMeIn()">
+  Log In
+  </button>
+
+
+  <button ion-button class="button-block" (click)="logMeIn()">
+  Sign up
+</button>
+
 
 </ion-content>
