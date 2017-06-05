@@ -20,16 +20,17 @@ export class QuestionsProvider {
   }
   
   
-  //Method to retrieve Goldberg's questions (50 questions) as an array of objects
+  //Retrieve Goldberg's questions (50 questions) no token
   getQuestions(){
     return this.http.get(this.baseUrl + this.path);
   }
   
-  //Retreive Goldberg's questions after passing in authentication token
-  getQuestions(token){
+  //Retrieve Goldberg's questions with authentication token
+/*  getQuestions(token){
     return this.http.get(this.baseUrl + this.path + '?access_token=' + token  );
   }
   
+*/
   
 
 }
