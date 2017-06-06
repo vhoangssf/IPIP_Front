@@ -285,7 +285,8 @@ export class QuestionPage {
       "Extraversion": [],
       "Agreeableness": [],
       "Conscientiousness": [],
-      "Emotional Stability": []
+      "Emotional Stability": [],
+      "Intellect": []
     };
   }
 

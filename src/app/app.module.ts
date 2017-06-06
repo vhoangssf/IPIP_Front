@@ -13,6 +13,9 @@ import { QuestionPage } from '../pages/question/question';
 import { HistoryPage } from '../pages/history/history';
 import { ResultsPage } from '../pages/results/results';
 import { BigFiveSumPage } from '../pages/big-five-sum/big-five-sum';
+import { QuestionsProvider } from '../providers/questions/questions';
+import { AppUsersProvider } from '../providers/app-users/app-users';
+import { TestResultsProvider } from '../providers/test-results/test-results';
 
 
 let injections: any[] = [
@@ -38,7 +41,10 @@ let injections: any[] = [
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    QuestionsProvider,
+    AppUsersProvider,
+    TestResultsProvider
   ]
 })
 export class AppModule {}
