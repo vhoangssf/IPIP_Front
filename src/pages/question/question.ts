@@ -292,16 +292,61 @@ export class QuestionPage {
   nextSlide(option) {
     console.log("Submitted");
     console.log(option.Style);
-    console.log(parseInt(option.factor));
-    this.testAnswers[option.Style].push(parseInt(option.factor));
-    if(this.slides.getActiveIndex() + 1 !== apiQuestions.length) {
+    console.log(option.Keyed);
+
+    // If Keyed is true, then values stay the same
+    if(this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === true) {
+      this.testAnswers[option.Style].push(parseInt(option.factor));
+      this.slides.lockSwipes(false);
+      this.slides.slideTo(this.slides.getActiveIndex() + 1);
+      this.slides.lockSwipes(true);
+      console.log(parseInt(option.factor));
+      console.log(this.testAnswers);
+
+    // If Keyed is false, then values need to get reversed.
+    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.factor == "1") {
+      this.testAnswers[option.Style].push(parseInt("5"));
       this.slides.lockSwipes(false);
       this.slides.slideTo(this.slides.getActiveIndex() + 1);
       this.slides.lockSwipes(true);
       console.log(this.testAnswers);
+      console.log(5);
+
+    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.factor == "2") {
+      this.testAnswers[option.Style].push(parseInt("4"));
+      this.slides.lockSwipes(false);
+      this.slides.slideTo(this.slides.getActiveIndex() + 1);
+      this.slides.lockSwipes(true);
+      console.log(4);
+      console.log(this.testAnswers);
+
+    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.factor == "3") {
+      this.testAnswers[option.Style].push(parseInt("3"));
+      this.slides.lockSwipes(false);
+      this.slides.slideTo(this.slides.getActiveIndex() + 1);
+      this.slides.lockSwipes(true);
+      console.log(3);
+      console.log(this.testAnswers);
+
+    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.factor == "4") {
+      this.testAnswers[option.Style].push(parseInt("2"));
+      this.slides.lockSwipes(false);
+      this.slides.slideTo(this.slides.getActiveIndex() + 1);
+      this.slides.lockSwipes(true);
+      console.log(2)
+      console.log(this.testAnswers);
+
+    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.factor == "5") {
+      this.testAnswers[option.Style].push(parseInt("1"));
+      this.slides.lockSwipes(false);
+      this.slides.slideTo(this.slides.getActiveIndex() + 1);
+      this.slides.lockSwipes(true);
+      console.log(1)
+      console.log(this.testAnswers);
+
     } else {
       //Finished the test
-
+      this.testAnswers.createDate = new Date().toISOString();
     }
 
   }
