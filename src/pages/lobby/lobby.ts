@@ -29,12 +29,12 @@ export class LobbyPage {
   }
 
   takeTest() {
-    console.log(QuestionPage);
+    console.log("QuestionPage");
     this.navCtrl.push(QuestionPage);
   }
 
   goToBigFiveSum() {
-    console.log(BigFiveSumPage);
+    console.log("BigFiveSumPage");
     this.navCtrl.push(BigFiveSumPage);
   }
 
