@@ -17,7 +17,7 @@
   <ion-slides pager paginationType="fraction">
     <ion-slide #option *ngFor="let question of questions">
       <ion-card>
-        <ion-list radio-group [(ngModel)]="question.factor" #factor>
+        <ion-list radio-group [(ngModel)]="question.score" #score>
           <ion-list-header>
             {{question.Text}}
           </ion-list-header>

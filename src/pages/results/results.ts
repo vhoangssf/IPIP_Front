@@ -21,7 +21,7 @@ export class ResultsPage {
   ionViewDidLoad() {
     this.test = this.navParams.get("test");
     console.log('ionViewDidLoad ResultsPage');
-    console.log(this.test);
+    console.log("Test as shown on Results Page", this.test);
   }
 
 }
