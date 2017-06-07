@@ -309,7 +309,7 @@ export class QuestionPage {
       console.log(this.testAnswers);
 
     // If Keyed is false, then values need to get reversed.
-    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.factor == "1") {
+  } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.factor == "1") {
       this.testAnswers[option.Style] += (parseInt("5"));
       this.slides.lockSwipes(false);
       this.slides.slideTo(this.slides.getActiveIndex() + 1);
@@ -353,17 +353,18 @@ export class QuestionPage {
       //Finished the test
       this.testAnswers.createDate = new Date().toISOString();
       // 10 is hardcoded here to find average, need to make this a modular!!!
-      let avgAnswers = this.testAnswers[option.Style] / 10;
-      console.log(avgAnswers)
+      // let avgAnswers = this.testAnswers[option.Style] / 10;
+      // this.testAnswers[option.Style] = avgAnswers;
+      // console.log(avgAnswers)
       console.log("Finished Test", this.testAnswers)
       // let token = "RscrY7yAS8h0Hx3xF8jf21nLMp5yLfVJfn8I4qLEevbnxaC8KG3qsTBYk5XZIxEe";
       // this.testResults.saveTest(token, this.testAnswers)
       //   .map(res => res.json())
       //   .subscribe(res =>{
-      //     this.navCtrl.setRoot(ResultsPage, {
-      //       test: this.testAnswers,
-      //       showHome: true
-      //     });
+          this.navCtrl.setRoot(ResultsPage, {
+            test: this.testAnswers,
+            showHome: true
+          });
       //   }, error => {
       //     alert("Test Results Fudged!!")
       //     console.log(error)
