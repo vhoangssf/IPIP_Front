@@ -348,7 +348,7 @@ export class QuestionPage {
     }
   }
 
-  // ALL OLD CODE BELOW, NEW CODE REFACTORED ABOVE ^^^
+  // ALL OLD CODE BELOW, NEW CODE ABOVE ^^^
 
     // If Keyed is true, then values stay the same
     // if(this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === true) {
