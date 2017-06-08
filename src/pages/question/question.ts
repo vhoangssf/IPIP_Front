@@ -293,73 +293,44 @@ export class QuestionPage {
     };
   }
 
-  keyedScore(value) {
-
+  // This function will call for the correct values of the score depending
+  // on whether it is Keyed false or true
+  keyedScore(option) {
+    console.log(option.Keyed);
+    if(option.Keyed === true) {
+      this.testAnswers[option.Style] += parseInt(option.score);
+      console.log(option.score)
+    } else if(option.Keyed === false && option.score == "1") {
+      this.testAnswers[option.Style] += parseInt("5");
+      console.log("5")
+    } else if(option.Keyed === false && option.score == "2") {
+      this.testAnswers[option.Style] += parseInt("4");
+      console.log("4")
+    } else if(option.Keyed === false && option.score == "3") {
+      this.testAnswers[option.Style] += parseInt(option.score);
+      console.log(option.score)
+    } else if(option.Keyed === false && option.score == "4") {
+      this.testAnswers[option.Style] += parseInt("2");
+      console.log("2")
+    } else if(option.Keyed === false && option.score == "5") {
+      this.testAnswers[option.Style] += parseInt("1");
+      console.log("1")
+    }
   }
 
   // When user clicks Submit button
   nextSlide(option) {
     console.log("Submitted");
     console.log(option.Style);
-    console.log(option.Keyed);
-
-    // If Keyed is true, then values stay the same
-    if(this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === true) {
-      this.testAnswers[option.Style] += parseInt(option.score);
+    this.keyedScore(option);
+    if(this.slides.getActiveIndex() + 1 !== apiQuestions.length) {
       this.slides.lockSwipes(false);
       this.slides.slideTo(this.slides.getActiveIndex() + 1);
       this.slides.lockSwipes(true);
-      console.log(parseInt(option.score));
-      console.log(this.testAnswers);
-
-    // If Keyed is false, then values need to get reversed.
-  } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "1") {
-      this.testAnswers[option.Style] += (parseInt("5"));
-      this.slides.lockSwipes(false);
-      this.slides.slideTo(this.slides.getActiveIndex() + 1);
-      this.slides.lockSwipes(true);
-      console.log(this.testAnswers);
-      console.log(5);
-
-    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "2") {
-      this.testAnswers[option.Style] += (parseInt("4"));
-      this.slides.lockSwipes(false);
-      this.slides.slideTo(this.slides.getActiveIndex() + 1);
-      this.slides.lockSwipes(true);
-      console.log(4);
-      console.log(this.testAnswers);
-
-    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "3") {
-      this.testAnswers[option.Style] += (parseInt("3"));
-      this.slides.lockSwipes(false);
-      this.slides.slideTo(this.slides.getActiveIndex() + 1);
-      this.slides.lockSwipes(true);
-      console.log(3);
-      console.log(this.testAnswers);
-
-    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "4") {
-      this.testAnswers[option.Style] += (parseInt("2"));
-      this.slides.lockSwipes(false);
-      this.slides.slideTo(this.slides.getActiveIndex() + 1);
-      this.slides.lockSwipes(true);
-      console.log(2)
-      console.log(this.testAnswers);
-
-    } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "5") {
-      this.testAnswers[option.Style] += (parseInt("1"));
-      this.slides.lockSwipes(false);
-      this.slides.slideTo(this.slides.getActiveIndex() + 1);
-      this.slides.lockSwipes(true);
-      console.log(1)
-      console.log(this.testAnswers);
-
+      console.log("current test answers:", this.testAnswers);
+    // All slides have been completed, move onto ResultsPage
     } else {
-      //Finished the test
       this.testAnswers.createDate = new Date().toISOString();
-      // 10 is hardcoded here to find average, need to make this a modular!!!
-      // let avgAnswers = this.testAnswers[option.Style] / 10;
-      // this.testAnswers[option.Style] = avgAnswers;
-      // console.log(avgAnswers)
       console.log("Finished Test", this.testAnswers)
       let token = "RscrY7yAS8h0Hx3xF8jf21nLMp5yLfVJfn8I4qLEevbnxaC8KG3qsTBYk5XZIxEe";
       this.testResults.saveTest(token, this.testAnswers)
@@ -374,5 +345,76 @@ export class QuestionPage {
           console.log(error)
         });
       }
+    }
   }
-}
+
+  // ALL OLD CODE BELOW, NEW CODE REFACTORED ABOVE ^^^
+
+    // If Keyed is true, then values stay the same
+    // if(this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === true) {
+    //   this.testAnswers[option.Style] += parseInt(option.score);
+    //   this.slides.lockSwipes(false);
+    //   this.slides.slideTo(this.slides.getActiveIndex() + 1);
+    //   this.slides.lockSwipes(true);
+    //   console.log(parseInt(option.score));
+    //   console.log(this.testAnswers);
+
+    // If Keyed is false, then values need to get reversed.
+  // } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "1") {
+  //     this.testAnswers[option.Style] += (parseInt("5"));
+  //     this.slides.lockSwipes(false);
+  //     this.slides.slideTo(this.slides.getActiveIndex() + 1);
+  //     this.slides.lockSwipes(true);
+  //     console.log(5);
+  //     console.log(this.testAnswers);
+
+    // } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "2") {
+    //   this.testAnswers[option.Style] += (parseInt("4"));
+    //   this.slides.lockSwipes(false);
+    //   this.slides.slideTo(this.slides.getActiveIndex() + 1);
+    //   this.slides.lockSwipes(true);
+    //   console.log(4);
+    //   console.log(this.testAnswers);
+
+    // } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "3") {
+    //   this.testAnswers[option.Style] += (parseInt("3"));
+    //   this.slides.lockSwipes(false);
+    //   this.slides.slideTo(this.slides.getActiveIndex() + 1);
+    //   this.slides.lockSwipes(true);
+    //   console.log(3);
+    //   console.log(this.testAnswers);
+
+    // } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "4") {
+    //   this.testAnswers[option.Style] += (parseInt("2"));
+    //   this.slides.lockSwipes(false);
+    //   this.slides.slideTo(this.slides.getActiveIndex() + 1);
+    //   this.slides.lockSwipes(true);
+    //   console.log(2)
+    //   console.log(this.testAnswers);
+    //
+    // } else if (this.slides.getActiveIndex() + 1 !== apiQuestions.length && option.Keyed === false && option.score == "5") {
+    //   this.testAnswers[option.Style] += (parseInt("1"));
+    //   this.slides.lockSwipes(false);
+    //   this.slides.slideTo(this.slides.getActiveIndex() + 1);
+    //   this.slides.lockSwipes(true);
+    //   console.log(1)
+    //   console.log(this.testAnswers);
+
+    // } else {
+    //   //Finished the test
+    //   this.testAnswers.createDate = new Date().toISOString();
+    //   console.log("Finished Test", this.testAnswers)
+    //   let token = "RscrY7yAS8h0Hx3xF8jf21nLMp5yLfVJfn8I4qLEevbnxaC8KG3qsTBYk5XZIxEe";
+    //   this.testResults.saveTest(token, this.testAnswers)
+    //     .map(res => res.json())
+    //     .subscribe(res =>{
+    //       this.navCtrl.setRoot(ResultsPage, {
+    //         test: this.testAnswers,
+    //         showHome: true
+    //       });
+    //     }, error => {
+    //       alert("Test Results Fudged!!")
+    //       console.log(error)
+    //     });
+      // }
+  // }
